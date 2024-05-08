@@ -1,4 +1,5 @@
 from PIL import Image
+import os
 
 imageName = 'pokemonicons-sheet.png'
 #40w 30h
@@ -8,7 +9,10 @@ with Image.open(imageName) as im:
     right = 40
     lower = 30
 
-    id = 1
+    id = 0
+
+    if os.path.exists('icons') is False:
+        os.mkdir('icons')
 
     while lower <= 3990:
         im_crop = im.crop((left, upper, right, lower))
